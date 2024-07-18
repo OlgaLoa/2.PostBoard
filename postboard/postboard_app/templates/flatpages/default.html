@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Bare - Start Bootstrap Template</title>
+
+
+        <!-- Подгружаем стили с помощью команды -->
+        {% load static %}
+        <!-- удаляем строчку, которая отвечает за иконку:-->
+        <!--<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />-->
+
+        <!-- И изменяем строчку, которая отвечает за подгрузку наших стилей:-->
+        <!--<link href="css/styles.css" rel="stylesheet" />-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
+        <!-- Если сейчас больше чем 19 или же меньше 7, то выводим тёмную тему, иначе выводим светлую -->
+    <style>
+        body {background-color: {% if current_time.hour >= 19 or current_time.hour <= 7 %} darkcyan {% else %} powderblue {% endif %};}
+    </style>
+
+</head>
+    </head>
+    <body>
+<!--        &lt;!&ndash; Responsive navbar&ndash;&gt;-->
+<!--        {% load cache %}-->
+<!--        {% cache 500 navbar %}  &lt;!&ndash; navbar - название кэша (ключ, по кот б находится кэш)&ndash;&gt;-->
+
+<!--&lt;!&ndash;<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">&ndash;&gt;-->
+<!--&lt;!&ndash;   <div class="container">&ndash;&gt;-->
+<!--&lt;!&ndash;       <a class="navbar-brand" href="#">Django flatpages</a>&ndash;&gt;-->
+<!--&lt;!&ndash;       <button class="navbar-toggler" type="button" data-toggle="collapse"&ndash;&gt;-->
+<!--&lt;!&ndash;               data-target="#navbarResponsive"&ndash;&gt;-->
+<!--&lt;!&ndash;               aria-controls="navbarResponsive" aria-expanded="false"&ndash;&gt;-->
+<!--&lt;!&ndash;               aria-label="Toggle navigation">&ndash;&gt;-->
+<!--&lt;!&ndash;           <span class="navbar-toggler-icon"></span>&ndash;&gt;-->
+<!--&lt;!&ndash;       </button>&ndash;&gt;-->
+<!--&lt;!&ndash;       <div class="collapse navbar-collapse" id="navbarResponsive">&ndash;&gt;-->
+<!--&lt;!&ndash;           <ul class="navbar-nav ml-auto">&ndash;&gt;-->
+<!--&lt;!&ndash;               <li class="nav-item active">&ndash;&gt;-->
+<!--&lt;!&ndash;                   <a class="nav-link" href="#">Home&ndash;&gt;-->
+<!--&lt;!&ndash;                       <span class="sr-only">(current)</span>&ndash;&gt;-->
+<!--&lt;!&ndash;                   </a>&ndash;&gt;-->
+<!--&lt;!&ndash;               </li>&ndash;&gt;-->
+<!--&lt;!&ndash;               <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                   <a class="nav-link" href="/about/">About</a>&ndash;&gt;-->
+<!--&lt;!&ndash;               </li>&ndash;&gt;-->
+<!--&lt;!&ndash;               <li class="nav-item">&ndash;&gt;-->
+<!--&lt;!&ndash;                   <a class="nav-link" href="/contacts/">Contact</a>&ndash;&gt;-->
+<!--&lt;!&ndash;               </li>&ndash;&gt;-->
+<!--&lt;!&ndash;           </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;       </div>&ndash;&gt;-->
+<!--&lt;!&ndash;   </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</nav>&ndash;&gt;-->
+<!--        {% endcache %}-->
+
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    {% block content %}
+                    {{ flatpage.content }}
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
